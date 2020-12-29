@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Spam Detector</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='icon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+
+		<!-- Website Title -->
+		<div class="container">
+			<h1 class='container-heading'><span>Spam Detector</span></h1><br>
+	        	<div class='description'>
+				<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku</p>
+			</div>
+		</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==1 %}
+				<h1><span class='danger'>This is a Spam message !!!!!</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='spam_giphy.gif') }}" alt="SPAM Image">
+			{% elif prediction==0 %}
+				<h1><span class='safe'>This is not a Spam message !!!!!</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='ham_giphy.gif') }}" alt="Not a spam image">
+			{% endif %}
+		</div>
+
+		<!-- Footer -->
+        <div class='footer'>
+            <div class="contact">
+                <a target="_blank" href="https://github.com/kdalal95"><i class="fab fa-github fa-lg contact-icon"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/kdalal95"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+            </div>
+            <p class='footer-description'>Made with ❤️ by Krishna Dalal</p>
+        </div>
+
+	</body>
+</html>
